@@ -9,9 +9,9 @@ const answerRoute = require("./routes/answerRoute");
 
 app.use(express.json());
 
-app.use("/api", authRoute);
-app.use("/api", authMiddleware, questionRoute);
-app.use("/api", authMiddleware, answerRoute);
+app.use("/api/user", authRoute);
+app.use("/api/question", authMiddleware, questionRoute);
+app.use("/api/answer", authMiddleware, answerRoute);
 
 const PORT = 5000;
 
