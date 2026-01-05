@@ -9,7 +9,7 @@ const questionRoute = require("./routes/questionRoute");
 const answerRoute = require("./routes/answerRoute");
 
 app.use(express.json());
-app.use(cors);
+app.use(cors());
 
 app.use("/api/user", authRoute);
 app.use("/api/question", authMiddleware, questionRoute);
