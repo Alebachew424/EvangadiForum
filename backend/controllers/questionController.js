@@ -31,8 +31,12 @@ async function getSingleQuestion(req, res) {
   const question_id = req.params.question_id;
 
   try {
-    const sql =
-      "SELECT q.*, u.username FROM questionTable q JOIN userTable u ON q.user_id = u.user_id ORDER BY q.created_at DESC";
+   const sql = `
+  SELECT q.*, u.username
+  FROM questionTable q
+  JOIN userTable u ON q.user_id = u.user_id
+  WHERE q.question_id = ?
+`;
 
     const [rows] = await db.execute(sql, [question_id]);
 
